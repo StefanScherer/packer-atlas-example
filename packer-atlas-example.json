@@ -1,7 +1,6 @@
 {
   "variables": {
     "version": "0.0.1",
-    "atlas_artifact": "StefanScherer/packer-atlas-example",
     "cm": "nocm",
     "cm_version": "",
     "cleanup_pause": "",
@@ -130,7 +129,7 @@
       {
         "type": "atlas",
         "only": ["vmware-iso"],
-        "artifact": "{{ user `atlas_artifact` }}",
+        "artifact": "StefanScherer/packer-atlas-example",
         "artifact_type": "vagrant.box",
         "metadata": {
           "provider": "vmware_desktop",
@@ -141,7 +140,7 @@
       {
         "type": "atlas",
         "only": ["virtualbox-iso"],
-        "artifact": "{{ user `atlas_artifact` }}",
+        "artifact": "StefanScherer/packer-atlas-example",
         "artifact_type": "vagrant.box",
         "metadata": {
           "provider": "virtualbox",
