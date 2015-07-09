@@ -22,4 +22,4 @@ deployment:
   publish:
     branch: master
     commands:
-      - packer push -name=StefanScherer/packer-atlas-example ubuntu1404.json
+      - packer push -name=StefanScherer/packer-atlas-example packer-atlas-example.json
