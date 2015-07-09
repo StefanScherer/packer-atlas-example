@@ -1,0 +1,24 @@
+machine:
+  timezone: Europe/Berlin
+
+  environment:
+    PACKER_VERSION: 0.8.1
+
+dependencies:
+  pre:
+    - sudo apt-get install -qq wget unzip
+    - sudo mkdir /opt/packer
+    - cd /opt/packer
+    - echo "Downloading packer ${PACKER_VERSION}..."
+    - sudo wget --no-verbose https://dl.bintray.com/mitchellh/packer/packer_${PACKER_VERSION}_linux_amd64.zip
+    - echo "Installing packer ${PACKER_VERSION}..."
+    - sudo unzip packer_${PACKER_VERSION}_linux_amd64.zip
+    - sudo rm packer_${PACKER_VERSION}_linux_amd64.zip
+    - cd /usr/bin
+    - sudo ln -s /opt/packer/* .
+
+deployment:
+  publish:
+    branch: master
+    commands:
+      - packer push -name=StefanScherer/packer-atlas-example ubuntu1404.json
