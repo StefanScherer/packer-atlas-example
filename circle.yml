@@ -18,6 +18,10 @@ dependencies:
       pushd /usr/bin &&
       sudo ln -s /opt/packer/* .
 
+test:
+  override:
+    - packer version
+
 deployment:
   publish:
     branch: master
